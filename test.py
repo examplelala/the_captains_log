@@ -1,27 +1,35 @@
-import json
 import requests
+import xml.etree.ElementTree as ET
 
-def geocode_amap(address, key):
-    url = "https://restapi.amap.com/v3/geocode/geo"
-    params = {
-        "address": address,
-        "key": key
-    }
-    resp = requests.get(url, params=params)
-    resp.raise_for_status()
-    return resp.json()
+# 虎扑 NBA 新闻 RSS 地址
+rss_url = "https://voice.hupu.com/nba/rss.xml"
 
-if __name__ == "__main__":
-    key = "52208ef7a775c3eae0f1176ab1b684bc"
-    address = "成都市武侯区银泰城"
-    data = geocode_amap(address, key)
+# 发送 GET 请求获取 RSS 数据
+response = requests.get(rss_url)
+print(response)
+response.raise_for_status()  # 如果请求失败，抛出异常
 
-    print(data)
+# 解析 XML 数据
+root = ET.fromstring(response.content)
 
-    location = data["geocodes"][0]["location"]
-    lon, lat = map(float, location.split(","))  # 分别拿经度和纬度
-    print("经度:", lon, "纬度:", lat)
-    # 拼接到 Open-Meteo API
-    weather_url = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current_weather=true"
-    weather = requests.get(weather_url).json()
-    print("天气:", weather)
+# 提取新闻条目
+news_items = []
+for item in root.findall(".//item"):
+    title = item.find("title").text
+    link = item.find("link").text
+    pub_date = item.find("pubDate").text
+    description = item.find("description").text
+    news_items.append({
+        "title": title,
+        "link": link,
+        "pubDate": pub_date,
+        "description": description
+    })
+
+# 打印前 5 条新闻
+for news in news_items[:5]:
+    print(f"标题: {news['title']}")
+    print(f"链接: {news['link']}")
+    print(f"发布时间: {news['pubDate']}")
+    print(f"描述: {news['description']}")
+    print("-" * 80)
