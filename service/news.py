@@ -27,7 +27,6 @@ async def get_news(platform:str=None,limit:int=3):
         platform=platform
     url=f"https://orz.ai/api/v1/dailynews?platform={platform}"
     response = requests.get(url)
-    print("platform:",platform,"response",response.json())
     return response.json()["data"][:limit]
 if __name__ == "__main__":
     asyncio.run(get_news())
