@@ -1,9 +1,27 @@
 from fastapi import FastAPI
 from routes import register_routes
+from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
+from database import create_db_and_tables
+from contextlib import asynccontextmanager
+from utils.logger import logger
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    logger.info("🚀 Starting FastAPI application...")
+    await create_db_and_tables()
+    
+    yield
+    logger.info("🛑 Shutting down FastAPI application...")
 
+app=FastAPI(lifespan=lifespan)
 
-app=FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 register_routes(app)
 @app.get("/")
 async def root():
