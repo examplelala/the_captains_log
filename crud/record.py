@@ -13,16 +13,6 @@ class DailyRecordCRUD:
         if not record_date:
             record_date = date.today().strftime('%Y-%m-%d')
         
-        # 检查是否已存在当天记录
-        result = await db.execute(
-            select(DailyRecord).filter(
-                and_(DailyRecord.user_id == user_id, DailyRecord.record_date == record_date)
-            )
-        )
-        existing_record = result.scalars().first()
-        
-        if existing_record:
-            raise ValueError(f"用户在 {record_date} 已有记录，请使用更新操作")
         
         db_record = DailyRecord(
             user_id=user_id,

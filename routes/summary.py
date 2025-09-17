@@ -14,7 +14,7 @@ router = APIRouter()
 @router.get("/users/{user_id}/summaries/{summary_date}", response_model=dict)
 async def get_ai_summary(user_id: int, summary_date: str, db: Session = Depends(get_async_session)):
     """获取AI总结"""
-    summary = AISummaryCRUD.get_ai_summary(db, user_id, summary_date)
+    summary = await AISummaryCRUD.get_ai_summary(db, user_id, summary_date)
     if not summary:
         raise HTTPException(status_code=404, detail="AI总结不存在")
     
@@ -43,7 +43,7 @@ async def get_user_summaries(
     db: Session = Depends(get_async_session)
 ):
     """获取用户的AI总结列表"""
-    summaries = AISummaryCRUD.get_user_summaries(db, user_id, skip, limit)
+    summaries = await AISummaryCRUD.get_user_summaries(db, user_id, skip, limit)
     
     summaries_data = []
     for summary in summaries:
@@ -69,7 +69,7 @@ async def regenerate_ai_summary(
     db: Session = Depends(get_async_session)
 ):
     """重新生成AI总结"""
-    record = DailyRecordCRUD.get_daily_record(db, user_id, record_date)
+    record = await DailyRecordCRUD.get_daily_record(db, user_id, record_date)
     if not record:
         raise HTTPException(status_code=404, detail="记录不存在")
     
@@ -79,11 +79,11 @@ async def regenerate_ai_summary(
 
 @router.get("/users/{user_id}/today", response_model=dict)
 async def get_today_info(user_id: int, db: Session = Depends(get_async_session)):
-    """获取今日记录和AI总结"""
+    """获取今日AI总结"""
     today = date.today().strftime('%Y-%m-%d')
     
 
-    summary = AISummaryCRUD.get_ai_summary(db, user_id, today)
+    summary = await AISummaryCRUD.get_ai_summary(db, user_id, today)
     summary_data = None
     
     if summary:

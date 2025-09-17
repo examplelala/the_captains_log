@@ -8,8 +8,8 @@ class TaskTemplate(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     user_id = Column(Integer, ForeignKey('users.id'), nullable=False, comment='用户ID')
 
-    created_at = Column(DateTime, default=datetime.now(timezone.utc), comment='创建时间')
-    updated_at = Column(DateTime, default=datetime.now(timezone.utc), onupdate=datetime.now(timezone.utc), comment='更新时间')
+    created_at = Column(DateTime(timezone=True), default=datetime.now(timezone.utc), comment='创建时间')
+    updated_at = Column(DateTime(timezone=True), default=datetime.now(timezone.utc), onupdate=datetime.now(timezone.utc), comment='更新时间')
 
     def set_template_data(self, template_data):
         self.template_content = json.dumps(template_data, ensure_ascii=False)

@@ -8,5 +8,6 @@ class Settings(BaseSettings):
     llm_base_url: str
     llm_model_name: str
     sqlite_url: str
+    postgres_url: str
 settings = Settings()
 

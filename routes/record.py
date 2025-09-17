@@ -4,12 +4,12 @@ from sqlalchemy.orm import Session
 from typing import List, Optional
 from datetime import date, datetime
 import json
-from schemas.record import DailyRecordCreate
+from schemas.record import DailyRecordCreate,DailyRecordUpdate
 from database import get_async_session
 from crud.summary import AISummaryCRUD
-from crud.record import DailyRecordCRUD,DailyRecordUpdate
+from crud.record import DailyRecordCRUD
 from crud.user import UserCRUD
-
+from service.llm import ai_service
 router = APIRouter()
 @router.post("/users/{user_id}/records/", response_model=dict)
 async def create_daily_record(
@@ -22,12 +22,12 @@ async def create_daily_record(
     """创建每日记录"""
     try:
         # 验证用户存在
-        user = UserCRUD.get_user(db, user_id)
+        user = await UserCRUD.get_user(db, user_id)
         if not user:
             raise HTTPException(status_code=404, detail="用户不存在")
-        
+        analyzed_record = await ai_service.analyze_daily_content(record.content)
         # 创建记录
-        db_record = DailyRecordCRUD.create_daily_record(db, user_id, record, record_date)
+        db_record = await DailyRecordCRUD.create_daily_record(db, user_id, analyzed_record, record_date)
         
         # 异步生成AI总结
         background_tasks.add_task(AISummaryCRUD.generate_ai_summary_task, db, user_id, db_record.id)
@@ -50,7 +50,7 @@ async def create_daily_record(
 @router.get("/users/{user_id}/records/{record_date}", response_model=dict)
 async def get_daily_record(user_id: int, record_date: str, db: Session = Depends(get_async_session)):
     """获取指定日期的记录"""
-    record = DailyRecordCRUD.get_daily_record(db, user_id, record_date)
+    record = await DailyRecordCRUD.get_daily_record(db, user_id, record_date)
     if not record:
         raise HTTPException(status_code=404, detail="记录不存在")
     
@@ -82,7 +82,7 @@ async def get_user_records(
     db: Session = Depends(get_async_session)
 ):
     """获取用户的记录列表"""
-    records = DailyRecordCRUD.get_user_records(db, user_id, skip, limit)
+    records = await DailyRecordCRUD.get_user_records(db, user_id, skip, limit)
     
     records_data = []
     for record in records:
@@ -110,7 +110,7 @@ async def update_daily_record(
 ):
     """更新每日记录"""
     try:
-        updated_record = DailyRecordCRUD.update_daily_record(db, user_id, record_date, record_update)
+        updated_record = await DailyRecordCRUD.update_daily_record(db, user_id, record_date, record_update)
         if not updated_record:
             raise HTTPException(status_code=404, detail="记录不存在")
         
@@ -130,7 +130,7 @@ async def update_daily_record(
 @router.delete("/users/{user_id}/records/{record_date}")
 async def delete_daily_record(user_id: int, record_date: str, db: Session = Depends(get_async_session)):
     """删除每日记录"""
-    success = DailyRecordCRUD.delete_daily_record(db, user_id, record_date)
+    success = await DailyRecordCRUD.delete_daily_record(db, user_id, record_date)
     if not success:
         raise HTTPException(status_code=404, detail="记录不存在")
     
@@ -139,11 +139,11 @@ async def delete_daily_record(user_id: int, record_date: str, db: Session = Depe
 
 @router.get("/users/{user_id}/today", response_model=dict)
 async def get_today_info(user_id: int, db: Session = Depends(get_async_session)):
-    """获取今日记录和AI总结"""
+    """获取今日记录"""
     today = date.today().strftime('%Y-%m-%d')
     
     # 获取今日记录
-    record = DailyRecordCRUD.get_daily_record(db, user_id, today)
+    record = await DailyRecordCRUD.get_daily_record(db, user_id, today)
     record_data = None
     
     if record:

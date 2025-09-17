@@ -5,16 +5,26 @@ from datetime import datetime, timezone
 import json
 from ._base import Base
 
+
 class DailyRecord(Base):
     __tablename__ = 'daily_records'
     id = Column(Integer, primary_key=True, autoincrement=True)
     user_id = Column(Integer, ForeignKey('users.id'), nullable=False, comment='用户ID')
     record_date = Column(String(10), nullable=False, comment='记录日期(YYYY-MM-DD)')
-    created_at = Column(DateTime, default=datetime.now(timezone.utc), comment='创建时间')
-    updated_at = Column(DateTime, default=datetime.now(timezone.utc), onupdate=datetime.now(timezone.utc), comment='更新时间')
+    content = Column(Text, nullable=True, comment='记录内容')
+    mood_score = Column(Integer, nullable=True, comment='心情评分')
+    reflections = Column(Text, nullable=True, comment='反思')
+    work_activities = Column(Text, nullable=True, comment='工作活动 (JSON)')
+    personal_activities = Column(Text, nullable=True, comment='个人活动 (JSON)')
+    learning_activities = Column(Text, nullable=True, comment='学习活动 (JSON)')
+    health_activities = Column(Text, nullable=True, comment='健康活动 (JSON)')
+    goals_achieved = Column(Text, nullable=True, comment='实现目标 (JSON)')
+    challenges_faced = Column(Text, nullable=True, comment='面临挑战 (JSON)')
+    created_at = Column(DateTime(timezone=True), default=datetime.now(timezone.utc), comment='创建时间')
+    updated_at = Column(DateTime(timezone=True), default=datetime.now(timezone.utc), onupdate=datetime.now(timezone.utc), comment='更新时间')
     user = relationship("User", back_populates="daily_records")
     ai_summary = relationship("AISummary", back_populates="daily_record", uselist=False, cascade="all, delete-orphan")
-    __table_args__ = ({'comment': '每日记录表'},)
+    __table_args__ = {'comment': '每日记录表'}
 
     def set_activities(self, category, activities_list):
         if hasattr(self, f'{category}_activities'):
