@@ -303,7 +303,7 @@ onMounted(() => {
 .suggestions-content {
   line-height: 1.8;
   color: var(--text-secondary);
-  max-height: 60vh;
+  max-height: 130vh;
   overflow-y: auto;
   padding-right: 8px;
 }
