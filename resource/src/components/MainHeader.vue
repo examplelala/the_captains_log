@@ -10,7 +10,7 @@
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--glass-border);
-  padding: 40px 50px;
+  padding: 30px 50px;
   text-align: center;
   position: relative;
 }

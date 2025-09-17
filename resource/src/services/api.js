@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // API基础配置
-const BASE_URL = 'http://localhost:8000'
+const BASE_URL = 'https://dabinglian.chat/'
 
 const api = axios.create({
     baseURL: BASE_URL,

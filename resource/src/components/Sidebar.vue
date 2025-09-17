@@ -42,7 +42,7 @@ defineEmits(['settings-toggle'])
   flex-direction: column;
   position: relative;
   overflow: hidden;
-}
+} 
 
 .sidebar::before {
   content: '';

@@ -124,7 +124,7 @@ onMounted(() => {
   backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   border-radius: 32px;
-  padding: 40px;
+  padding: 20px;
   position: relative;
   overflow: hidden;
   flex: 1;
@@ -148,7 +148,7 @@ onMounted(() => {
 
 .thought-input {
   width: 100%;
-  min-height: 200px;
+  min-height: 400px;
   background: rgba(255, 255, 255, 0.03);
   border: 2px solid rgba(255, 255, 255, 0.08);
   border-radius: 20px;
