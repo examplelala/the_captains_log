@@ -31,7 +31,7 @@
 
 <script setup>
 import { ref, onMounted, inject } from 'vue'
-
+import { createDailyRecord, getCurrentUserId } from '../services/api'
 const showToast = inject('showToast')
 
 const thoughtContent = ref('')
@@ -57,7 +57,7 @@ const handleInput = () => {
   }, 2000)
 }
 
-const saveThought = () => {
+const saveThought = async () => {
   const content = thoughtContent.value.trim()
 
   if (!content) {
@@ -67,26 +67,25 @@ const saveThought = () => {
 
   try {
     // 模拟保存数据
-    const thoughtData = {
+    const recordData  = {
       content: content,
-      timestamp: new Date().toISOString(),
-      date: new Date().toDateString()
+      mood_score: 0,
+      work_activities: [],
+      personal_activities: [],
+      learning_activities: [],
+      health_activities: [],
+      goals_achieved: [],
+      challenges_faced: [],
+      reflections: "string"
     }
 
-    // 这里可以调用后端API保存
-    // await thoughtService.saveThought(thoughtData)
+    const userId = getCurrentUserId()
+    const response = await createDailyRecord(userId, recordData)
 
     lastSavedContent = content
     saveStatus.value = '已保存 ✅'
     showToast('今日思考已保存，明天将为您生成个性化建议 🎯')
 
-    // 模拟清空输入框询问
-    setTimeout(() => {
-      if (confirm('是否清空输入框为明天的记录做准备？')) {
-        thoughtContent.value = ''
-        saveStatus.value = '等待输入...'
-      }
-    }, 2000)
 
   } catch (error) {
     console.error('Save error:', error)

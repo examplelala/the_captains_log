@@ -72,23 +72,23 @@ class AISummaryCRUD:
         if not record:
             raise ValueError("日记录不存在")
         
-        # 检查是否已存在AI总结
-        result = await db.execute(select(AISummary).filter(AISummary.daily_record_id == daily_record_id))
-        existing_summary = result.scalars().first()
+        # # 检查是否已存在AI总结
+        # result = await db.execute(select(AISummary).filter(AISummary.daily_record_id == daily_record_id))
+        # existing_summary = result.scalars().first()
 
-        if existing_summary:
-            # 更新现有总结
-            for field, value in summary_data.items():
-                if hasattr(existing_summary, field):
-                    if field in ['tomorrow_suggestions', 'priority_tasks', 'improvement_suggestions'] and isinstance(value, list):
-                        setattr(existing_summary, field, json.dumps(value, ensure_ascii=False))
-                    else:
-                        setattr(existing_summary, field, value)
+        # if existing_summary:
+        #     # 更新现有总结
+        #     for field, value in summary_data.items():
+        #         if hasattr(existing_summary, field):
+        #             if field in ['tomorrow_suggestions', 'priority_tasks', 'improvement_suggestions'] and isinstance(value, list):
+        #                 setattr(existing_summary, field, json.dumps(value, ensure_ascii=False))
+        #             else:
+        #                 setattr(existing_summary, field, value)
             
-            existing_summary.updated_at = datetime.now(timezone.utc)
-            await db.commit()
-            await db.refresh(existing_summary)
-            return existing_summary
+        #     existing_summary.updated_at = datetime.now(timezone.utc)
+        #     await db.commit()
+        #     await db.refresh(existing_summary)
+        #     return existing_summary
         
         db_summary = AISummary(
             user_id=user_id,
@@ -103,7 +103,7 @@ class AISummaryCRUD:
             db_summary.priority_tasks = json.dumps(summary_data['priority_tasks'], ensure_ascii=False)
         if 'improvement_suggestions' in summary_data:
             db_summary.improvement_suggestions = json.dumps(summary_data['improvement_suggestions'], ensure_ascii=False)
-        
+        db_summary.summary_date=summary_data['summary_date']
         db.add(db_summary)
         await db.commit()
         await db.refresh(db_summary)
@@ -112,7 +112,7 @@ class AISummaryCRUD:
     @staticmethod
     async def get_ai_summary(db: AsyncSession, user_id: int, summary_date: str) -> Optional[AISummary]:
         result = await db.execute(
-            select(AISummary).filter(and_(AISummary.user_id == user_id, AISummary.summary_date == summary_date))
+            select(AISummary).filter(and_(AISummary.user_id == user_id, AISummary.summary_date == summary_date)).order_by(desc(AISummary.created_at))
         )
         return result.scalars().first()
     

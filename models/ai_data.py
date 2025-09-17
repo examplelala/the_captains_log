@@ -17,7 +17,7 @@ class AISummary(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     user_id = Column(Integer, ForeignKey('users.id'), nullable=False, comment='用户ID')
     daily_record_id = Column(Integer, ForeignKey('daily_records.id'), nullable=False, comment='关联的每日记录ID')
-
+    summary_date = Column(String(10), nullable=False, comment='总结日期(YYYY-MM-DD)', index=True)
     achievements_summary = Column(Text, nullable=True, comment='成就总结')
     productivity_analysis = Column(Text, nullable=True, comment='生产力分析')
     mood_analysis = Column(Text, nullable=True, comment='情绪分析')

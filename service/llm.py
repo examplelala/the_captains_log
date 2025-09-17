@@ -7,6 +7,7 @@ from typing import Dict, Any
 from config import settings
 from schemas.record import DailyRecordCreate
 from utils.logger import logger
+from datetime import date
 class AIService:
     def __init__(self):
         self.client = AsyncOpenAI(api_key=settings.llm_api_key, base_url=settings.llm_base_url)
@@ -222,7 +223,7 @@ content: "今天心情7分，上午写了一份报告，晚上和朋友去看电
             summary_data.update({
                 "model_version": self.model,
                 "confidence_score": 85,
-                #"analysis_period": f"基于 {len(records_data)} 天数据分析"  # 新增：标明分析期间
+                "summary_date": date.today().strftime('%Y-%m-%d')
             })
             
             return summary_data
