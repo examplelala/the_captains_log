@@ -1,0 +1,144 @@
+nohup: ignoring input
+INFO:     Will watch for changes in these directories: ['/home/lisq/the_captains_log']
+INFO:     Uvicorn running on http://0.0.0.0:18080 (Press CTRL+C to quit)
+INFO:     Started reloader process [3886920] using WatchFiles
+INFO:     Started server process [3886966]
+INFO:     Waiting for application startup.
+[32m2025-09-17 17:06:50[0m | [1mINFO    [0m | [36mmain[0m:[36mlifespan[0m:[36m10[0m - [1m🚀 Starting FastAPI application...[0m
+INFO:     Application startup complete.
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     171.213.235.94:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     171.213.235.94:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     171.213.235.94:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     49.88.254.147:0 - "GET / HTTP/1.1" 200 OK
+INFO:     2a06:98c0:3600::103:0 - "GET /wordpress/wp-admin/setup-config.php HTTP/1.1" 404 Not Found
+INFO:     2a06:98c0:3600::103:0 - "GET /wordpress/wp-admin/setup-config.php HTTP/1.1" 404 Not Found
+INFO:     2a06:98c0:3600::103:0 - "GET /wp-admin/setup-config.php HTTP/1.1" 404 Not Found
+INFO:     2a06:98c0:3600::103:0 - "GET /wp-admin/setup-config.php HTTP/1.1" 404 Not Found
+INFO:     44.193.254.10:0 - "GET / HTTP/1.1" 200 OK
+INFO:     44.193.254.10:0 - "GET / HTTP/1.1" 200 OK
+INFO:     205.169.39.102:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     205.169.39.102:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     205.169.39.102:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     205.169.39.190:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     205.169.39.190:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     205.169.39.190:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     2409:8963:53:2ec:d81e:b350:3c2c:e34e:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     2409:8963:53:2ec:d81e:b350:3c2c:e34e:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     2409:8963:53:2ec:d81e:b350:3c2c:e34e:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     205.169.39.54:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     205.169.39.54:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     205.169.39.54:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     112.45.102.121:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     112.45.102.121:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     112.45.102.121:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     112.45.102.121:0 - "OPTIONS /record/users/1/records/ HTTP/1.1" 200 OK
+INFO:     112.45.102.121:0 - "POST /record/users/1/records/ HTTP/1.1" 200 OK
+INFO:     112.45.102.121:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     77.30.170.85:0 - "GET / HTTP/1.1" 200 OK
+INFO:     44.202.160.106:0 - "GET / HTTP/1.1" 200 OK
+INFO:     44.202.160.106:0 - "GET / HTTP/1.1" 200 OK
+INFO:     44.202.160.106:0 - "GET / HTTP/1.1" 200 OK
+INFO:     44.202.160.106:0 - "GET / HTTP/1.1" 200 OK
+INFO:     154.29.239.41:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     154.29.239.41:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     154.29.239.41:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "OPTIONS /record/users/1/records/ HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "POST /record/users/1/records/ HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "OPTIONS /summary/users/1/records/2025-09-17/regenerate-summary HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "POST /summary/users/1/records/2025-09-17/regenerate-summary HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     43.155.195.141:0 - "GET / HTTP/1.1" 200 OK
+INFO:     138.246.253.24:0 - "GET /robots.txt HTTP/1.1" 404 Not Found
+INFO:     103.4.251.52:0 - "GET / HTTP/1.1" 200 OK
+INFO:     192.154.214.237:0 - "GET / HTTP/1.1" 200 OK
+INFO:     103.196.9.246:0 - "GET / HTTP/1.1" 200 OK
+INFO:     212.11.64.217:0 - "GET / HTTP/1.1" 200 OK
+INFO:     183.207.45.112:0 - "GET / HTTP/1.1" 200 OK
+INFO:     43.159.136.201:0 - "GET / HTTP/1.1" 200 OK
+INFO:     2a09:bac5:3a48:1478::20a:98:0 - "OPTIONS /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     2a09:bac5:3a48:1478::20a:98:0 - "OPTIONS /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     2a09:bac5:3a48:1478::20a:98:0 - "OPTIONS /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     2a09:bac5:3a48:1478::20a:98:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     2a09:bac5:3a48:1478::20a:98:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     2a09:bac5:3a48:1478::20a:98:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     2a06:98c0:3600::103:0 - "GET /wp-admin/setup-config.php HTTP/1.1" 404 Not Found
+INFO:     2a06:98c0:3600::103:0 - "GET /wp-admin/setup-config.php HTTP/1.1" 404 Not Found
+INFO:     2a06:98c0:3600::103:0 - "GET /wordpress/wp-admin/setup-config.php HTTP/1.1" 404 Not Found
+INFO:     2a06:98c0:3600::103:0 - "GET /wordpress/wp-admin/setup-config.php HTTP/1.1" 404 Not Found
+INFO:     44.205.29.107:0 - "GET / HTTP/1.1" 200 OK
+INFO:     182.42.104.32:0 - "GET / HTTP/1.1" 200 OK
+INFO:     54.169.106.33:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     54.169.106.33:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     54.169.106.33:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     54.169.106.33:0 - "GET /news/baidu?limit=3 HTTP/1.1" 200 OK
+INFO:     54.169.106.33:0 - "OPTIONS /record/users/1/records/ HTTP/1.1" 200 OK
+INFO:     54.169.106.33:0 - "POST /record/users/1/records/ HTTP/1.1" 200 OK
+INFO:     54.169.106.33:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     54.169.106.33:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     54.169.106.33:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     54.169.106.33:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     54.169.106.33:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     54.169.106.33:0 - "GET / HTTP/1.1" 200 OK
+INFO:     54.169.106.33:0 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     54.169.106.33:0 - "GET /index.html HTTP/1.1" 200 OK
+INFO:     20.99.210.70:0 - "GET / HTTP/1.1" 200 OK
+INFO:     52.167.144.67:0 - "GET /robots.txt HTTP/1.1" 404 Not Found
+INFO:     157.55.39.196:0 - "GET / HTTP/1.1" 200 OK
+INFO:     162.243.62.9:0 - "GET / HTTP/1.1" 200 OK
+INFO:     116.169.71.89:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     116.169.71.89:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     116.169.71.89:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     199.45.154.116:0 - "GET / HTTP/1.1" 200 OK
+INFO:     2602:80d:1003::14:0 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     167.94.146.63:0 - "GET / HTTP/1.1" 200 OK
+INFO:     2602:80d:1005::1f:0 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     185.203.132.199:0 - "GET / HTTP/1.1" 200 OK
+INFO:     185.203.132.199:0 - "GET /js/lkk_ch.js HTTP/1.1" 404 Not Found
+INFO:     185.203.132.199:0 - "GET /js/twint_ch.js HTTP/1.1" 404 Not Found
+INFO:     185.203.132.199:0 - "GET /css/support_parent.css HTTP/1.1" 404 Not Found
+INFO:     54.226.170.87:0 - "GET / HTTP/1.1" 200 OK
+INFO:     54.226.170.87:0 - "GET / HTTP/1.1" 200 OK
+INFO:     54.226.170.87:0 - "GET / HTTP/1.1" 200 OK
+INFO:     54.226.170.87:0 - "GET / HTTP/1.1" 200 OK
+INFO:     1.161.36.206:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     1.161.36.206:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     1.161.36.206:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     4.43.184.114:0 - "GET / HTTP/1.1" 200 OK
+INFO:     2a06:98c0:3600::103:0 - "GET /wordpress/wp-admin/setup-config.php HTTP/1.1" 404 Not Found
+INFO:     2a06:98c0:3600::103:0 - "GET /wp-admin/setup-config.php HTTP/1.1" 404 Not Found
+INFO:     2a06:98c0:3600::103:0 - "GET /wp-admin/setup-config.php HTTP/1.1" 404 Not Found
+INFO:     2a06:98c0:3600::103:0 - "GET /wordpress/wp-admin/setup-config.php HTTP/1.1" 404 Not Found
+INFO:     43.157.98.187:0 - "GET / HTTP/1.1" 200 OK
+INFO:     205.210.31.80:0 - "GET / HTTP/1.1" 200 OK
+INFO:     146.247.113.62:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     3.146.111.124:0 - "GET / HTTP/1.1" 200 OK
+INFO:     3.146.111.124:0 - "GET / HTTP/1.1" 200 OK
+INFO:     43.159.145.153:0 - "GET / HTTP/1.1" 200 OK
+INFO:     199.244.88.229:0 - "GET / HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "OPTIONS /record/users/1/records/ HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK

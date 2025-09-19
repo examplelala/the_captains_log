@@ -19,7 +19,16 @@
         <div class="section-header">🏆 今日成就</div>
         <div class="summary-text">{{ todayInfo.ai_summary.achievements_summary }}</div>
       </div>
-
+    <!--生产力分析-->>
+      <div v-if="todayInfo.ai_summary.productivity_analysis" class="summary-section">
+        <div class="section-header">🚀 生产力分析</div>
+        <div class="summary-text">{{ todayInfo.ai_summary.productivity_analysis }}</div>
+      </div>
+    <!--情绪分析-->>
+      <div v-if="todayInfo.ai_summary.mood_analysis" class="summary-section">
+        <div class="section-header">😊 情绪分析</div>
+        <div class="summary-text">{{ todayInfo.ai_summary.mood_analysis }}</div>
+      </div>
       <!-- 明日建议 -->
       <div v-if="todayInfo.ai_summary.tomorrow_suggestions.length > 0" class="section">
         <div class="section-header">💡 明日建议</div>

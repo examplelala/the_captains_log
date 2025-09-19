@@ -51,8 +51,7 @@ export const createDailyRecord = async (userId, recordData) => {
 // 获取今日信息
 export const getTodayInfo = async (userId) => {
     try {
-        const response = await api.get(`/summary/users/1/today`)
-        console.log(response)
+        const response = await api.get(`/summary/users/${userId}/today`)
         return response
     } catch (error) {
         console.error('获取今日信息失败:', error)
