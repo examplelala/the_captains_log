@@ -57,11 +57,25 @@ const props = defineProps({
 })
 
 const newsSourceNames = {
-  'hupu': '虎扑',
-  'weibo': '微博',
-  'zhihu': '知乎',
-  'baidu': '百度'
-}
+  "baidu": "百度",
+  "shaoshupai": "少数派",
+  "weibo": "微博",
+  "zhihu": "知乎",
+  "36kr": "36氪",
+  "52pojie": "吾爱破解",
+  "bilibili": "哔哩哔哩",
+  "douban": "豆瓣",
+  "hupu": "虎扑",
+  "tieba": "贴吧",
+  "juejin": "掘金",
+  "douyin": "抖音",
+  "v2ex": "V2EX",
+  "jinritoutiao": "今日头条",
+  "stackoverflow": "Stack Overflow",
+  "github": "GitHub",
+  "hackernews": "Hacker News"
+};
+
 
 const newsList = ref([])
 const loading = ref(false)

@@ -29,10 +29,23 @@
       <div class="setting-group">
         <label class="setting-label">新闻源</label>
         <select v-model="localConfig.newsSource" class="setting-select">
-          <option value="hupu">虎扑</option>
+          <option value="baidu">百度</option>
+          <option value="shaoshupai">少数派</option>
           <option value="weibo">微博</option>
           <option value="zhihu">知乎</option>
-          <option value="baidu">百度</option>
+          <option value="36kr">36氪</option>
+          <option value="52pojie">吾爱破解</option>
+          <option value="bilibili">哔哩哔哩</option>
+          <option value="douban">豆瓣</option>
+          <option value="hupu">虎扑</option>
+          <option value="tieba">贴吧</option>
+          <option value="juejin">掘金</option>
+          <option value="douyin">抖音</option>
+          <option value="v2ex">V2EX</option>
+          <option value="jinritoutiao">今日头条</option>
+          <option value="stackoverflow">Stack Overflow</option>
+          <option value="github">GitHub</option>
+          <option value="hackernews">Hacker News</option>
         </select>
       </div>
 
@@ -190,6 +203,53 @@ const applySettings = () => {
   outline: none;
   border-color: var(--accent-color);
   background: rgba(255, 255, 255, 0.08);
+}
+
+/* 修复选择器下拉选项样式 */
+.setting-select {
+  /* 确保选择器本身有正确的样式 */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+  padding-right: 40px;
+}
+
+/* 强制设置选项的颜色 */
+.setting-select option {
+  background-color: #2d3748 !important;  /* 深色背景 */
+  color: #ffffff !important;              /* 白色文字 */
+  padding: 8px 12px;
+}
+
+/* 兼容不同浏览器的选项样式 */
+.setting-select option:hover {
+  background-color: #4a5568 !important;  /* 悬停时稍亮的背景 */
+}
+
+.setting-select option:checked,
+.setting-select option:focus {
+  background-color: #4299e1 !important;  /* 选中时的蓝色背景 */
+  color: #ffffff !important;
+}
+
+/* 针对 WebKit 浏览器的额外样式 */
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  .setting-select option {
+    background: #2d3748;
+    color: #ffffff;
+  }
+}
+
+/* 针对 Firefox 的样式 */
+@-moz-document url-prefix() {
+  .setting-select option {
+    background-color: #2d3748;
+    color: #ffffff;
+  }
 }
 
 .button-group {
