@@ -48,13 +48,21 @@ import { newsService } from '../services/api'
 const props = defineProps({
   source: {
     type: String,
-    default: 'hupu'
+    default: getRandomSource
   },
   limit: {
     type: Number,
-    default: 3
+    default: 10 
   }
 })
+
+const getRandomSource = {
+  default: () => {
+    const sources = Object.keys(newsSourceNames);
+    const randomIndex = Math.floor(Math.random() * sources.length);
+    return sources[randomIndex];
+  }
+};
 
 const newsSourceNames = {
   "baidu": "百度",
