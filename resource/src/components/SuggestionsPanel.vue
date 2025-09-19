@@ -3,6 +3,15 @@
     <div class="panel-header">
       <div class="panel-icon">🎯</div>
       <div class="panel-title">今日建议 & 规划</div>
+      <!-- 操作按钮 -->
+      <div class="actions">
+        <button @click="refreshSummary" class="refresh-btn" :disabled="refreshing">
+          {{ refreshing ? '🔄 刷新中...' : '🔄 刷新' }}
+        </button>
+        <button @click="regenerateSummary" class="regenerate-btn" :disabled="regenerating">
+          {{ regenerating ? '⏳ 重新生成中...' : '✨ 重新生成' }}
+        </button>
+      </div>
       <div class="panel-status">{{ statusText }}</div>
     </div>
 
@@ -71,15 +80,7 @@
         <div class="summary-text">{{ todayInfo.ai_summary.mood_analysis }}</div>
       </div>
 
-      <!-- 操作按钮 -->
-      <div class="actions">
-        <button @click="refreshSummary" class="refresh-btn" :disabled="refreshing">
-          {{ refreshing ? '🔄 刷新中...' : '🔄 刷新' }}
-        </button>
-        <button @click="regenerateSummary" class="regenerate-btn" :disabled="regenerating">
-          {{ regenerating ? '⏳ 重新生成中...' : '✨ 重新生成' }}
-        </button>
-      </div>
+      
 
       <!-- 生成时间 -->
       <div class="meta-info">

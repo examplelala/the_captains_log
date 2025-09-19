@@ -433,3 +433,19 @@ INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 INFO:     194.56.225.214:0 - "GET /index.html HTTP/1.1" 200 OK
 INFO:     194.56.225.214:0 - "GET /favicon.ico HTTP/1.1" 404 Not Found
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hackernews?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hackernews?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/v2ex?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/104.06032/30.542128 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/104.06032/30.542128 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "OPTIONS /record/users/1/records/ HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "POST /record/users/1/records/ HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "POST /record/users/1/records/ HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "POST /record/users/1/records/ HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
