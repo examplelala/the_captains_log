@@ -19,9 +19,12 @@ api.interceptors.response.use(
 
 // 天气服务
 export const weatherService = {
-    async getWeather(city) {
+    async getWeatherByAddress(city) {
         const encodedCity = encodeURIComponent(city)
         return await api.get(`/weather/${encodedCity}`)
+    },
+    async getWeatherByCoords(lon, lat) {
+        return await api.get(`/weather/${lon}/${lat}`);
     }
 }
 

@@ -74,7 +74,7 @@ const getRandomNewsSource = () => {
 
 // 响应式数据
 const config = ref({
-  city: '成都银泰城',
+  city: '',
   newsSource: getRandomNewsSource(), // 使用随机新闻源
   newsLimit: 3
 })

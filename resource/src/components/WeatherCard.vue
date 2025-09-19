@@ -31,15 +31,71 @@ const weatherData = ref({
 
 const loadWeather = async () => {
   try {
-    const data = await weatherService.getWeather(props.city)
-    const weather = data.current_weather
-    const weatherInfo = getWeatherInfo(weather.weathercode)
-    
-    weatherData.value = {
-      icon: weatherInfo.icon,
-      temperature: `${weather.temperature}°C`,
-      description: weatherInfo.desc,
-      location: props.city
+    if (props.city) { // 检查 city 是否被用户设置
+      const data = await weatherService.getWeatherByAddress(props.city)
+      const weather = data.current_weather
+      const weatherInfo = getWeatherInfo(weather.weathercode)
+      
+      weatherData.value = {
+        icon: weatherInfo.icon,
+        temperature: `${weather.temperature}°C`,
+        description: weatherInfo.desc,
+        location: props.city
+      }
+    } else {
+      // 尝试获取当前经纬度
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          async (position) => {
+            const latitude = position.coords.latitude
+            const longitude = position.coords.longitude
+            
+            try {
+              const data = await weatherService.getWeatherByCoords(longitude, latitude)
+              const weather = data.current_weather
+              const weatherInfo = getWeatherInfo(weather.weathercode)
+
+              weatherData.value = {
+                icon: weatherInfo.icon,
+                temperature: `${weather.temperature}°C`,
+                description: weatherInfo.desc,
+                location: '当前位置' // 或您想显示的任何内容
+              }
+            } catch (err) {
+              console.error('Weather loading error by coords:', err)
+              weatherData.value = {
+                icon: '❌',
+                temperature: '天气服务',
+                description: '无法获取当前位置天气',
+                location: '未知位置'
+              }
+            }
+          },
+          (error) => {
+            console.error('获取地理位置失败:', error.message)
+            weatherData.value = {
+              icon: '⚠️',
+              temperature: '定位失败',
+              description: '请授权地理位置信息',
+              location: '未知位置'
+            }
+            if (showToast) {
+              showToast('请允许浏览器获取您的地理位置以显示当前天气。')
+            }
+          }
+        )
+      } else {
+        console.error('您的浏览器不支持地理位置。')
+        weatherData.value = {
+          icon: '🚫',
+          temperature: '浏览器不支持',
+          description: '无法获取地理位置信息',
+          location: '未知位置'
+        }
+        if (showToast) {
+          showToast('您的浏览器不支持地理位置服务。')
+        }
+      }
     }
   } catch (error) {
     console.error('Weather loading error:', error)
