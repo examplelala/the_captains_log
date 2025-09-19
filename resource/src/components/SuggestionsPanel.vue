@@ -14,49 +14,9 @@
 
     <!-- 有AI总结时显示 -->
     <div v-else-if="todayInfo.has_summary" class="suggestions-content">
-      <!-- 成就总结 -->
-      <div v-if="todayInfo.ai_summary.achievements_summary" class="summary-section">
-        <div class="section-header">🏆 今日成就</div>
-        <div class="summary-text">{{ todayInfo.ai_summary.achievements_summary }}</div>
-      </div>
-    <!--生产力分析-->>
-      <div v-if="todayInfo.ai_summary.productivity_analysis" class="summary-section">
-        <div class="section-header">🚀 生产力分析</div>
-        <div class="summary-text">{{ todayInfo.ai_summary.productivity_analysis }}</div>
-      </div>
-    <!--情绪分析-->>
-      <div v-if="todayInfo.ai_summary.mood_analysis" class="summary-section">
-        <div class="section-header">😊 情绪分析</div>
-        <div class="summary-text">{{ todayInfo.ai_summary.mood_analysis }}</div>
-      </div>
-      <!--提升建议-->>
-      <div v-if="todayInfo.ai_summary.improvement_suggestions.length > 0" class="section">
-        <div class="section-header">💡 提升建议</div>
-        <div
-          v-for="(suggestion, index) in todayInfo.ai_summary.improvement_suggestions"
-          :key="'suggestion-' + index"
-          class="suggestion-item"
-        >
-          <div class="suggestion-category">建议 {{ index + 1 }}</div>
-          <div class="suggestion-text">{{ suggestion }}</div>
-        </div>
-      </div>
-      <!-- 明日建议 -->
-      <div v-if="todayInfo.ai_summary.tomorrow_suggestions.length > 0" class="section">
-        <div class="section-header">💡 明日建议</div>
-        <div
-          v-for="(suggestion, index) in todayInfo.ai_summary.tomorrow_suggestions"
-          :key="'suggestion-' + index"
-          class="suggestion-item"
-        >
-          <div class="suggestion-category">建议 {{ index + 1 }}</div>
-          <div class="suggestion-text">{{ suggestion }}</div>
-        </div>
-      </div>
-
-      <!-- 优先任务 -->
-      <div v-if="todayInfo.ai_summary.priority_tasks.length > 0" class="section">
-        <div class="section-header">⚡ 优先任务</div>
+      <!-- 1. 优先任务 - 最重要，放在最前面 -->
+      <div v-if="todayInfo.ai_summary.priority_tasks.length > 0" class="section priority-section">
+        <div class="section-header">🔥 优先任务</div>
         <div
           v-for="(task, index) in todayInfo.ai_summary.priority_tasks"
           :key="'task-' + index"
@@ -65,6 +25,50 @@
           <div class="suggestion-category">优先级 {{ index + 1 }}</div>
           <div class="suggestion-text">{{ task }}</div>
         </div>
+      </div>
+
+      <!-- 2. 明日建议 - 第二重要，帮助规划 -->
+      <div v-if="todayInfo.ai_summary.tomorrow_suggestions.length > 0" class="section">
+        <div class="section-header">🌅 明日建议</div>
+        <div
+          v-for="(suggestion, index) in todayInfo.ai_summary.tomorrow_suggestions"
+          :key="'tomorrow-' + index"
+          class="suggestion-item"
+        >
+          <div class="suggestion-category">建议 {{ index + 1 }}</div>
+          <div class="suggestion-text">{{ suggestion }}</div>
+        </div>
+      </div>
+
+      <!-- 3. 提升建议 - 第三重要，持续改进 -->
+      <div v-if="todayInfo.ai_summary.improvement_suggestions.length > 0" class="section">
+        <div class="section-header">💡 提升建议</div>
+        <div
+          v-for="(suggestion, index) in todayInfo.ai_summary.improvement_suggestions"
+          :key="'improvement-' + index"
+          class="suggestion-item"
+        >
+          <div class="suggestion-category">建议 {{ index + 1 }}</div>
+          <div class="suggestion-text">{{ suggestion }}</div>
+        </div>
+      </div>
+
+      <!-- 4. 今日成就 - 总结性内容 -->
+      <div v-if="todayInfo.ai_summary.achievements_summary" class="summary-section">
+        <div class="section-header">🏆 今日成就</div>
+        <div class="summary-text">{{ todayInfo.ai_summary.achievements_summary }}</div>
+      </div>
+
+      <!-- 5. 生产力分析 - 分析性内容 -->
+      <div v-if="todayInfo.ai_summary.productivity_analysis" class="summary-section">
+        <div class="section-header">📊 生产力分析</div>
+        <div class="summary-text">{{ todayInfo.ai_summary.productivity_analysis }}</div>
+      </div>
+
+      <!-- 6. 情绪分析 - 最后的辅助信息 -->
+      <div v-if="todayInfo.ai_summary.mood_analysis" class="summary-section">
+        <div class="section-header">😊 情绪分析</div>
+        <div class="summary-text">{{ todayInfo.ai_summary.mood_analysis }}</div>
       </div>
 
       <!-- 操作按钮 -->
