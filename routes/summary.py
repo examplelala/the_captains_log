@@ -90,6 +90,9 @@ async def get_today_info(user_id: int, db: Session = Depends(get_async_session))
         summary_data = {
             "achievements_summary": summary.achievements_summary,
             "tomorrow_suggestions": json.loads(summary.tomorrow_suggestions) if summary.tomorrow_suggestions else [],
+            "productivity_analysis": summary.productivity_analysis,
+            "mood_analysis": summary.mood_analysis,
+            "improvement_suggestions": json.loads(summary.improvement_suggestions) if summary.improvement_suggestions else [],
             "priority_tasks": json.loads(summary.priority_tasks) if summary.priority_tasks else [],
             "created_at": summary.created_at
         }

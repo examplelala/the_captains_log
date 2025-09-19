@@ -29,6 +29,18 @@
         <div class="section-header">😊 情绪分析</div>
         <div class="summary-text">{{ todayInfo.ai_summary.mood_analysis }}</div>
       </div>
+      <!--提升建议-->>
+      <div v-if="todayInfo.ai_summary.improvement_suggestions.length > 0" class="section">
+        <div class="section-header">💡 提升建议</div>
+        <div
+          v-for="(suggestion, index) in todayInfo.ai_summary.improvement_suggestions"
+          :key="'suggestion-' + index"
+          class="suggestion-item"
+        >
+          <div class="suggestion-category">建议 {{ index + 1 }}</div>
+          <div class="suggestion-text">{{ suggestion }}</div>
+        </div>
+      </div>
       <!-- 明日建议 -->
       <div v-if="todayInfo.ai_summary.tomorrow_suggestions.length > 0" class="section">
         <div class="section-header">💡 明日建议</div>
