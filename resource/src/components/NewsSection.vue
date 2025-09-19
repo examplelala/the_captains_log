@@ -65,17 +65,10 @@ const newsSourceNames = {
   "hackernews": "Hacker News"
 }
 
-// 随机选择新闻源的函数
-const getRandomSource = () => {
-  const sources = Object.keys(newsSourceNames)
-  const randomIndex = Math.floor(Math.random() * sources.length)
-  return sources[randomIndex]
-}
-
 const props = defineProps({
   source: {
     type: String,
-    default: getRandomSource // 直接使用函数作为默认值
+    required: true // 现在总是由父组件传入，所以设为必需
   },
   limit: {
     type: Number,

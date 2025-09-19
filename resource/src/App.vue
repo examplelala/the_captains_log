@@ -5,7 +5,7 @@
       :config="config"
       @settings-toggle="handleSettingsToggle"
     />
-
+    
     <!-- 主内容区域 -->
     <div class="main-content">
       <MainHeader />
@@ -13,19 +13,19 @@
       <div class="content-area">
         <!-- 左侧：今日建议 -->
         <SuggestionsPanel />
-
+        
         <!-- 右侧：思考输入 -->
         <InputPanel />
       </div>
     </div>
-
+    
     <!-- 设置面板 -->
     <SettingsModal 
       v-model:visible="showSettings"
       v-model:config="config"
       @apply-settings="handleApplySettings"
     />
-
+    
     <!-- 全局提示 -->
     <Toast 
       v-if="toast.show"
@@ -44,10 +44,38 @@ import InputPanel from './components/InputPanel.vue'
 import SettingsModal from './components/SettingsModal.vue'
 import Toast from './components/Toast.vue'
 
+// 新闻源配置
+const newsSourceNames = {
+  "baidu": "百度",
+  "shaoshupai": "少数派",
+  "weibo": "微博",
+  "zhihu": "知乎",
+  "36kr": "36氪",
+  "52pojie": "吾爱破解",
+  "bilibili": "哔哩哔哩",
+  "douban": "豆瓣",
+  "hupu": "虎扑",
+  "tieba": "贴吧",
+  "juejin": "掘金",
+  "douyin": "抖音",
+  "v2ex": "V2EX",
+  "jinritoutiao": "今日头条",
+  "stackoverflow": "Stack Overflow",
+  "github": "GitHub",
+  "hackernews": "Hacker News"
+}
+
+// 随机选择新闻源的函数
+const getRandomNewsSource = () => {
+  const sources = Object.keys(newsSourceNames)
+  const randomIndex = Math.floor(Math.random() * sources.length)
+  return sources[randomIndex]
+}
+
 // 响应式数据
 const config = ref({
   city: '成都银泰城',
-  newsSource: 'hupu',
+  newsSource: getRandomNewsSource(), // 使用随机新闻源
   newsLimit: 3
 })
 
@@ -86,6 +114,7 @@ provide('config', config)
 // 生命周期
 onMounted(() => {
   console.log('LifeSync Dashboard Ready ✨')
+  console.log('当前随机选择的新闻源:', config.value.newsSource, newsSourceNames[config.value.newsSource])
 })
 </script>
 
@@ -119,7 +148,7 @@ onMounted(() => {
   .app-container {
     grid-template-columns: 300px 1fr;
   }
-
+  
   .content-area {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -132,7 +161,7 @@ onMounted(() => {
     grid-template-areas: "main-content" "sidebar";
     grid-template-rows: 1fr auto;
   }
-
+  
   .content-area {
     padding: 25px;
   }
