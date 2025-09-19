@@ -45,25 +45,6 @@
 import { ref, onMounted, watch } from 'vue'
 import { newsService } from '../services/api'
 
-const props = defineProps({
-  source: {
-    type: String,
-    default: getRandomSource
-  },
-  limit: {
-    type: Number,
-    default: 10 
-  }
-})
-
-const getRandomSource = {
-  default: () => {
-    const sources = Object.keys(newsSourceNames);
-    const randomIndex = Math.floor(Math.random() * sources.length);
-    return sources[randomIndex];
-  }
-};
-
 const newsSourceNames = {
   "baidu": "百度",
   "shaoshupai": "少数派",
@@ -82,8 +63,25 @@ const newsSourceNames = {
   "stackoverflow": "Stack Overflow",
   "github": "GitHub",
   "hackernews": "Hacker News"
-};
+}
 
+// 随机选择新闻源的函数
+const getRandomSource = () => {
+  const sources = Object.keys(newsSourceNames)
+  const randomIndex = Math.floor(Math.random() * sources.length)
+  return sources[randomIndex]
+}
+
+const props = defineProps({
+  source: {
+    type: String,
+    default: getRandomSource // 直接使用函数作为默认值
+  },
+  limit: {
+    type: Number,
+    default: 10 
+  }
+})
 
 const newsList = ref([])
 const loading = ref(false)

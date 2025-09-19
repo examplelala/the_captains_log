@@ -180,3 +180,70 @@ INFO:     Waiting for application startup.
 [32m2025-09-19 10:30:20[0m | [1mINFO    [0m | [36mmain[0m:[36mlifespan[0m:[36m10[0m - [1m🚀 Starting FastAPI application...[0m
 INFO:     Application startup complete.
 INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/douyin?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     194.56.225.214:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     138.246.253.24:0 - "GET /robots.txt HTTP/1.1" 404 Not Found
+INFO:     93.123.109.225:0 - "GET / HTTP/1.1" 200 OK
+INFO:     198.235.24.202:0 - "GET / HTTP/1.1" 200 OK
+INFO:     2408:8469:bb90:16bb:d93a:f11d:c409:7cdc:0 - "GET /weather/%E6%88%90%E9%83%BD%E9%93%B6%E6%B3%B0%E5%9F%8E HTTP/1.1" 200 OK
+INFO:     2408:8469:bb90:16bb:d93a:f11d:c409:7cdc:0 - "GET /news/hupu?limit=3 HTTP/1.1" 200 OK
+INFO:     2408:8469:bb90:16bb:d93a:f11d:c409:7cdc:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+INFO:     66.249.66.43:0 - "GET /components HTTP/1.1" 404 Not Found
+INFO:     34.90.61.163:0 - "GET / HTTP/1.1" 200 OK
+INFO:     2a06:98c0:3600::103:0 - "GET /wordpress/wp-admin/setup-config.php HTTP/1.1" 404 Not Found
+INFO:     2a06:98c0:3600::103:0 - "GET /wp-admin/setup-config.php HTTP/1.1" 404 Not Found
+INFO:     2a06:98c0:3600::103:0 - "GET /wordpress/wp-admin/setup-config.php HTTP/1.1" 404 Not Found
+INFO:     2a06:98c0:3600::103:0 - "GET /wp-admin/setup-config.php HTTP/1.1" 404 Not Found
