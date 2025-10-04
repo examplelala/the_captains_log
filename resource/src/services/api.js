@@ -5,7 +5,7 @@ const BASE_URL = 'https://dabinglian.chat/'
 
 const api = axios.create({
     baseURL: BASE_URL,
-    timeout: 10000
+    timeout: 100000
 })
 
 // 响应拦截器
