@@ -5,11 +5,12 @@ import uvicorn
 from database import create_db_and_tables
 from contextlib import asynccontextmanager
 from utils.logger import logger
+from service.embedding import load_model_sentence_transformers
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     logger.info("🚀 Starting FastAPI application...")
     await create_db_and_tables()
-    
+    load_model_sentence_transformers()
     yield
     logger.info("🛑 Shutting down FastAPI application...")
 

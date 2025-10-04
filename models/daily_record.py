@@ -4,8 +4,8 @@ from sqlalchemy.orm import relationship
 from datetime import datetime, timezone
 import json
 from ._base import Base
-
-
+from pgvector.sqlalchemy import Vector
+from sqlalchemy import Index
 class DailyRecord(Base):
     __tablename__ = 'daily_records'
     id = Column(Integer, primary_key=True, autoincrement=True)
@@ -24,7 +24,13 @@ class DailyRecord(Base):
     updated_at = Column(DateTime(timezone=True), default=datetime.now(timezone.utc), onupdate=datetime.now(timezone.utc), comment='更新时间')
     user = relationship("User", back_populates="daily_records")
     ai_summary = relationship("AISummary", back_populates="daily_record", uselist=False, cascade="all, delete-orphan")
-    __table_args__ = {'comment': '每日记录表'}
+    vector = Column(Vector(512), nullable=True, comment='向量嵌入')
+    __table_args__ = (Index(
+            'idx_daily_records_vector',
+            'vector',
+            postgresql_using='ivfflat'  # 或 'hnsw'
+        ),
+        {'comment': '每日记录表'})
 
     def set_activities(self, category, activities_list):
         if hasattr(self, f'{category}_activities'):

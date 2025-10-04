@@ -4,12 +4,13 @@ from sqlalchemy.orm import Session
 from typing import List, Optional
 from datetime import date, datetime
 import json
-from schemas.record import DailyRecordCreate,DailyRecordUpdate
+from schemas.record import DailyRecordCreate,DailyRecordUpdate, DailyQuery
 from database import get_async_session
 from crud.summary import AISummaryCRUD
 from crud.record import DailyRecordCRUD
 from crud.user import UserCRUD
 from service.llm import ai_service
+from agents.langgraph import respond 
 router = APIRouter()
 @router.post("/users/{user_id}/records/", response_model=dict)
 async def create_daily_record(
@@ -21,15 +22,12 @@ async def create_daily_record(
 ):
     """创建每日记录"""
     try:
-        # 验证用户存在
         user = await UserCRUD.get_user(db, user_id)
         if not user:
             raise HTTPException(status_code=404, detail="用户不存在")
         analyzed_record = await ai_service.analyze_daily_content(record.content)
-        # 创建记录
         db_record = await DailyRecordCRUD.create_daily_record(db, user_id, analyzed_record, record_date)
         
-        # 异步生成AI总结
         background_tasks.add_task(AISummaryCRUD.generate_ai_summary_task, db, user_id, db_record.id)
         
         return {
@@ -54,7 +52,6 @@ async def get_daily_record(user_id: int, record_date: str, db: Session = Depends
     if not record:
         raise HTTPException(status_code=404, detail="记录不存在")
     
-    # 格式化返回数据
     record_data = {
         "id": record.id,
         "user_id": record.user_id,
@@ -114,7 +111,6 @@ async def update_daily_record(
         if not updated_record:
             raise HTTPException(status_code=404, detail="记录不存在")
         
-        # 重新生成AI总结
         background_tasks.add_task(AISummaryCRUD.generate_ai_summary_task, db, user_id, updated_record.id)
         
         return {
@@ -142,7 +138,6 @@ async def get_today_info(user_id: int, db: Session = Depends(get_async_session))
     """获取今日记录"""
     today = date.today().strftime('%Y-%m-%d')
     
-    # 获取今日记录
     record = await DailyRecordCRUD.get_daily_record(db, user_id, today)
     record_data = None
     
@@ -163,3 +158,14 @@ async def get_today_info(user_id: int, db: Session = Depends(get_async_session))
         "record": record_data,
         "has_record": record is not None,
     }
+
+
+@router.post("/ai/{user_id}/query", response_model=dict)
+async def ai_query(
+    user_id: int,
+    data: DailyQuery,
+    db: Session = Depends(get_async_session)
+):
+    """RAG 智能体查询入口"""
+    result = await respond(user_id=user_id, user_query=data.query, session=db)
+    return result

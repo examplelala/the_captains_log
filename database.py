@@ -9,7 +9,7 @@ from models.user import User, UserSettings
 
 
 
-# SQLite 配置
+
 DATABASE_URL = settings.postgres_url
 async_engine = create_async_engine(DATABASE_URL)
 async_session_maker = sessionmaker(bind=async_engine, class_=AsyncSession, expire_on_commit=False)

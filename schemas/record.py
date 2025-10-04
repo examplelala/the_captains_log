@@ -21,3 +21,5 @@ class DailyRecordUpdate(BaseModel):
     goals_achieved: Optional[List[str]] = None
     challenges_faced: Optional[List[str]] = None
     reflections: Optional[str] = None
+class DailyQuery(BaseModel):
+    query: str

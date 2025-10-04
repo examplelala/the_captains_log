@@ -5,7 +5,7 @@ from typing import List, Optional
 import json
 from schemas.record import DailyRecordCreate, DailyRecordUpdate
 from models.daily_record import DailyRecord
-
+from service.embedding import generate_vectors
 
 class DailyRecordCRUD:
     @staticmethod
@@ -19,7 +19,8 @@ class DailyRecordCRUD:
             record_date=record_date,
             content=record.content,
             mood_score=record.mood_score,
-            reflections=record.reflections
+            reflections=record.reflections,
+            vector=generate_vectors(record.content)
         )
         
         # 设置活动数据
