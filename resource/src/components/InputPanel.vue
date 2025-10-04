@@ -36,7 +36,7 @@
 
 <script setup>
 import { ref, onMounted, inject } from 'vue'
-import { createDailyRecord, getCurrentUserId, queryAI } from '../services/api'
+import { createDailyRecord, getCurrentUserId, queryAI as apiQueryAI } from '../services/api'
 const showToast = inject('showToast')
 
 // 定义emit，用于与父组件通信
@@ -77,7 +77,7 @@ const queryAI = async () => {
   querying.value = true
   try {
     const userId = getCurrentUserId()
-    const response = await queryAI(userId, { query: content })
+    const response = await apiQueryAI(userId, { query: content })
     
     // 发送查询结果给父组件
     emit('query-result', response)
