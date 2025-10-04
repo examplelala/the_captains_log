@@ -252,7 +252,8 @@ const regenerateSummary = async () => {
 
 // 处理查询结果
 const handleQueryResult = (result) => {
-  queryResult.value = result.result.data
+  queryResult.value = result.data
+  console.log(result)
   showQueryResult.value = true
   showToast('查询结果已显示 ✨')
 }

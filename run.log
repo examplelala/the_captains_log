@@ -3491,3 +3491,19 @@ INFO:     91.243.81.131:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
 INFO:     91.243.81.131:0 - "OPTIONS /record/ai/1/query HTTP/1.1" 200 OK
 [32m2025-10-04 11:38:29[0m | [1mINFO    [0m | [36mservice.embedding[0m:[36mload_model_sentence_transformers[0m:[36m6[0m - [1m使用 sentence-transformers 加载模型...[0m
 [32m2025-10-04 11:40:58[0m | [1mINFO    [0m | [36mservice.embedding[0m:[36mload_model_sentence_transformers[0m:[36m6[0m - [1m使用 sentence-transformers 加载模型...[0m
+INFO:     91.243.81.131:0 - "GET /news/52pojie?limit=3 HTTP/1.1" 200 OK
+INFO:     91.243.81.131:0 - "GET /weather/103.8331/1.3062 HTTP/1.1" 200 OK
+INFO:     91.243.81.131:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
+[32m2025-10-04 11:46:21[0m | [1mINFO    [0m | [36mservice.embedding[0m:[36mload_model_sentence_transformers[0m:[36m6[0m - [1m使用 sentence-transformers 加载模型...[0m
+INFO:     91.243.81.131:0 - "POST /record/ai/1/query HTTP/1.1" 200 OK
+WARNING:  WatchFiles detected changes in 'routes/record.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+[32m2025-10-04 11:48:58[0m | [1mINFO    [0m | [36mmain[0m:[36mlifespan[0m:[36m15[0m - [1m🛑 Shutting down FastAPI application...[0m
+INFO:     Application shutdown complete.
+INFO:     Finished server process [2229957]
+INFO:     Started server process [2238908]
+INFO:     Waiting for application startup.
+[32m2025-10-04 11:49:03[0m | [1mINFO    [0m | [36mmain[0m:[36mlifespan[0m:[36m11[0m - [1m🚀 Starting FastAPI application...[0m
+[32m2025-10-04 11:49:03[0m | [1mINFO    [0m | [36mservice.embedding[0m:[36mload_model_sentence_transformers[0m:[36m6[0m - [1m使用 sentence-transformers 加载模型...[0m
+INFO:     Application startup complete.

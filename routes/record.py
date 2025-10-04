@@ -11,6 +11,7 @@ from crud.record import DailyRecordCRUD
 from crud.user import UserCRUD
 from service.llm import ai_service
 from agents.langgraph import respond 
+from utils.logger import logger
 router = APIRouter()
 @router.post("/users/{user_id}/records/", response_model=dict)
 async def create_daily_record(
@@ -167,5 +168,7 @@ async def ai_query(
     db: Session = Depends(get_async_session)
 ):
     """RAG 智能体查询入口"""
+    logger.info("开始查询")
     result = await respond(user_id=user_id, user_query=data.query, session=db)
+    logger.info("查询成功")
     return result
