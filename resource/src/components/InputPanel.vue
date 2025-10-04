@@ -21,9 +21,14 @@
       ></textarea>
       <div class="input-actions">
         <div class="save-status">{{ saveStatus }}</div>
-        <button class="save-btn" @click="saveThought">
-          💾 保存今日思考
-        </button>
+        <div class="action-buttons">
+          <button class="query-btn" @click="queryAI" :disabled="querying">
+            {{ querying ? '🤔 询问中...' : '🤔 询问 AI' }}
+          </button>
+          <button class="save-btn" @click="saveThought">
+            💾 保存今日思考
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -31,11 +36,15 @@
 
 <script setup>
 import { ref, onMounted, inject } from 'vue'
-import { createDailyRecord, getCurrentUserId } from '../services/api'
+import { createDailyRecord, getCurrentUserId, queryAI } from '../services/api'
 const showToast = inject('showToast')
+
+// 定义emit，用于与父组件通信
+const emit = defineEmits(['query-result'])
 
 const thoughtContent = ref('')
 const saveStatus = ref('等待输入...')
+const querying = ref(false)
 let autoSaveTimer = null
 let lastSavedContent = ''
 
@@ -55,6 +64,30 @@ const handleInput = () => {
       saveStatus.value = '等待输入...'
     }
   }, 2000)
+}
+
+const queryAI = async () => {
+  const content = thoughtContent.value.trim()
+
+  if (!content) {
+    showToast('请输入一些内容再进行询问 📝')
+    return
+  }
+
+  querying.value = true
+  try {
+    const userId = getCurrentUserId()
+    const response = await queryAI(userId, { query: content })
+    
+    // 发送查询结果给父组件
+    emit('query-result', response)
+    showToast('AI已经为您分析完成 ✨')
+  } catch (error) {
+    console.error('Query error:', error)
+    showToast('询问AI失败，请稍后重试 ❌')
+  } finally {
+    querying.value = false
+  }
 }
 
 const saveThought = async () => {
@@ -180,9 +213,40 @@ onMounted(() => {
   margin-top: 20px;
 }
 
+.action-buttons {
+  display: flex;
+  gap: 12px;
+}
+
 .save-status {
   font-size: 0.85em;
   color: var(--text-secondary);
+}
+
+.query-btn {
+  background: rgba(138, 43, 226, 0.8);
+  color: white;
+  border: none;
+  padding: 16px 24px;
+  border-radius: 16px;
+  font-size: 0.9em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.query-btn:hover:not(:disabled) {
+  background: rgba(138, 43, 226, 1);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(138, 43, 226, 0.3);
+}
+
+.query-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .save-btn {

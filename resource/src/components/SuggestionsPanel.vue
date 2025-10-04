@@ -1,10 +1,15 @@
 <template>
   <div class="suggestions-panel">
     <div class="panel-header">
-      <div class="panel-icon">🎯</div>
-      <div class="panel-title">今日建议 & 规划</div>
+      <div class="panel-icon">{{ showQueryResult ? '🤔' : '🎯' }}</div>
+      <div :class="['panel-title', {'query-title': showQueryResult}]">
+        {{ showQueryResult ? 'AI 智能分析' : '今日建议 & 规划' }}
+      </div>
       <!-- 操作按钮 -->
       <div class="actions">
+        <button v-if="showQueryResult" @click="backToSummary" class="back-btn">
+          ↩️ 返回建议
+        </button>
         <button @click="refreshSummary" class="refresh-btn" :disabled="refreshing">
           {{ refreshing ? '🔄 刷新中...' : '🔄 刷新' }}
         </button>
@@ -15,8 +20,51 @@
       <div class="panel-status">{{ statusText }}</div>
     </div>
 
+    <!-- 查询结果显示 -->
+    <div v-if="showQueryResult && queryResult" class="query-result-content">
+      <div class="query-answer">
+        <div class="answer-section">
+          <div class="section-header">💬 AI 回答</div>
+          <div class="answer-text">{{ queryResult.answer }}</div>
+        </div>
+        
+        <div v-if="queryResult.evidence && queryResult.evidence.length > 0" class="evidence-section">
+          <div class="section-header">📊 支撑证据</div>
+          <div v-for="(evidence, index) in queryResult.evidence" :key="'evidence-' + index" class="evidence-item">
+            <div class="evidence-text">{{ evidence }}</div>
+          </div>
+        </div>
+
+        <div v-if="queryResult.trend_analysis && queryResult.trend_analysis.length > 0" class="trend-section">
+          <div class="section-header">📈 趋势分析</div>
+          <div v-for="(trend, index) in queryResult.trend_analysis" :key="'trend-' + index" class="trend-item">
+            <div class="trend-text">{{ trend }}</div>
+          </div>
+        </div>
+
+        <div v-if="queryResult.insights && queryResult.insights.length > 0" class="insights-section">
+          <div class="section-header">💡 相关洞察</div>
+          <div v-for="(insight, index) in queryResult.insights" :key="'insight-' + index" class="insight-item">
+            <div class="insight-text">{{ insight }}</div>
+          </div>
+        </div>
+
+        <div v-if="queryResult.sources && queryResult.sources.length > 0" class="sources-section">
+          <div class="section-header">📚 数据来源</div>
+          <div v-for="(source, index) in queryResult.sources" :key="'source-' + index" class="source-item">
+            <div class="source-text">{{ source }}</div>
+          </div>
+        </div>
+
+        <div class="confidence-badge">
+          <span class="confidence-label">置信度:</span>
+          <span :class="['confidence-level', queryResult.confidence]">{{ queryResult.confidence }}</span>
+        </div>
+      </div>
+    </div>
+
     <!-- 加载状态 -->
-    <div v-if="loading" class="loading-state">
+    <div v-else-if="loading" class="loading-state">
       <div class="loading-spinner"></div>
       <p>正在加载今日总结...</p>
     </div>
@@ -124,8 +172,13 @@ const refreshing = ref(false)
 const regenerating = ref(false)
 const error = ref('')
 
+// 查询结果相关
+const showQueryResult = ref(false)
+const queryResult = ref(null)
+
 // 计算属性
 const statusText = computed(() => {
+  if (showQueryResult.value) return 'AI 智能分析结果'
   if (loading.value) return '加载中...'
   if (error.value) return '加载失败'
   if (todayInfo.value.has_summary) return `${todayInfo.value.date} 的智能分析`
@@ -197,6 +250,19 @@ const regenerateSummary = async () => {
   }
 }
 
+// 处理查询结果
+const handleQueryResult = (result) => {
+  queryResult.value = result.result.data
+  showQueryResult.value = true
+  showToast('查询结果已显示 ✨')
+}
+
+// 返回建议视图
+const backToSummary = () => {
+  showQueryResult.value = false
+  queryResult.value = null
+}
+
 // 格式化时间
 const formatTime = (timestamp) => {
   if (!timestamp) return '未知'
@@ -211,7 +277,8 @@ const formatTime = (timestamp) => {
 // 暴露方法给父组件
 defineExpose({
   refreshSummary,
-  loadTodayInfo
+  loadTodayInfo,
+  handleQueryResult
 })
 
 // 组件挂载时加载数据
@@ -511,22 +578,145 @@ onMounted(() => {
   font-size: 0.75em;
 }
 
+/* 查询结果样式 */
+.query-result-content {
+  line-height: 1.8;
+  color: var(--text-secondary);
+  max-height: 50vh;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.query-title {
+  color: rgba(138, 43, 226, 0.9) !important;
+}
+
+.answer-section {
+  margin-bottom: 24px;
+}
+
+.answer-text {
+  background: rgba(138, 43, 226, 0.1);
+  border: 1px solid rgba(138, 43, 226, 0.2);
+  border-radius: 16px;
+  padding: 20px;
+  font-size: 1.05em;
+  line-height: 1.6;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.evidence-section,
+.trend-section,
+.insights-section,
+.sources-section {
+  margin-bottom: 20px;
+}
+
+.evidence-item,
+.trend-item,
+.insight-item,
+.source-item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  transition: all 0.3s ease;
+}
+
+.evidence-item:hover,
+.trend-item:hover,
+.insight-item:hover,
+.source-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-1px);
+}
+
+.evidence-text,
+.trend-text,
+.insight-text,
+.source-text {
+  font-size: 0.9em;
+  line-height: 1.5;
+}
+
+.confidence-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.confidence-label {
+  font-size: 0.85em;
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.confidence-level {
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.confidence-level.高 {
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+}
+
+.confidence-level.中 {
+  background: rgba(251, 191, 36, 0.2);
+  color: #fbbf24;
+}
+
+.confidence-level.低 {
+  background: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+.back-btn {
+  background: rgba(107, 114, 128, 0.8);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 0.85em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+  background: rgba(107, 114, 128, 1);
+  transform: translateY(-1px);
+}
+
 /* 滚动条样式 */
-.suggestions-content::-webkit-scrollbar {
+.suggestions-content::-webkit-scrollbar,
+.query-result-content::-webkit-scrollbar {
   width: 6px;
 }
 
-.suggestions-content::-webkit-scrollbar-track {
+.suggestions-content::-webkit-scrollbar-track,
+.query-result-content::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 3px;
 }
 
-.suggestions-content::-webkit-scrollbar-thumb {
+.suggestions-content::-webkit-scrollbar-thumb,
+.query-result-content::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 3px;
 }
 
-.suggestions-content::-webkit-scrollbar-thumb:hover {
+.suggestions-content::-webkit-scrollbar-thumb:hover,
+.query-result-content::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.3);
 }
 

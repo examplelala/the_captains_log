@@ -74,6 +74,17 @@ export const regenerateAISummary = async (userId, recordDate) => {
     }
 }
 
+// AI查询服务
+export const queryAI = async (userId, queryData) => {
+    try {
+        const response = await api.post(`/record/ai/${userId}/query`, queryData)
+        return response
+    } catch (error) {
+        console.error('AI查询失败:', error)
+        throw error
+    }
+}
+
 // 获取用户ID的辅助函数
 export const getCurrentUserId = () => {
     return localStorage.getItem('userId') || 1 // 默认用户ID为1

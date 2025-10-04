@@ -12,10 +12,10 @@
       
       <div class="content-area">
         <!-- 左侧：今日建议 -->
-        <SuggestionsPanel />
+        <SuggestionsPanel ref="suggestionsPanel" />
         
         <!-- 右侧：思考输入 -->
-        <InputPanel />
+        <InputPanel @query-result="handleQueryResult" />
       </div>
     </div>
     
@@ -80,6 +80,7 @@ const config = ref({
 })
 
 const showSettings = ref(false)
+const suggestionsPanel = ref(null)
 
 const toast = ref({
   show: false,
@@ -94,6 +95,12 @@ const handleSettingsToggle = () => {
 const handleApplySettings = (newConfig) => {
   config.value = { ...newConfig }
   showToast('设置已应用 ✅')
+}
+
+const handleQueryResult = (result) => {
+  if (suggestionsPanel.value) {
+    suggestionsPanel.value.handleQueryResult(result)
+  }
 }
 
 const showToast = (message) => {

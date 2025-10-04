@@ -3425,3 +3425,6 @@ INFO:     Waiting for application startup.
 INFO:     Application startup complete.
 [32m2025-10-04 11:19:33[0m | [1mINFO    [0m | [36mservice.embedding[0m:[36mload_model_sentence_transformers[0m:[36m6[0m - [1m使用 sentence-transformers 加载模型...[0m
 INFO:     127.0.0.1:47414 - "POST /record/ai/1/query HTTP/1.1" 200 OK
+INFO:     91.243.81.131:0 - "GET /news/jinritoutiao?limit=3 HTTP/1.1" 200 OK
+INFO:     91.243.81.131:0 - "GET /weather/104.049427/30.555022 HTTP/1.1" 200 OK
+INFO:     91.243.81.131:0 - "GET /summary/users/1/today HTTP/1.1" 200 OK
