@@ -87,11 +87,54 @@ def build_prompt_with_history() -> ChatPromptTemplate:
 
 def build_prompt_intent() -> ChatPromptTemplate:
     system = (
-        "你是一个意图分类器。根据用户的问题判断任务类型，并且只输出一个标签。"
-        "可选标签: today_summary, recent_summary, cross_days_trend, general_qa。"
-        "必须只输出上述标签之一，全部小写，不要多余文字。"
+        "你是一个意图分类器，负责把用户的问题分到以下四类之一：\n"
+        "1. today_summary：明确只查询今天的数据，如含“今天”“今日”“今早”“刚刚”“今天上午”等字样或语境。\n"
+        "2. recent_summary：指近几天（通常7天内）的问题，如“最近”“前几天”“过去几天”“上周”等，或者用户未指定具体日期但问题指向近期。\n"
+        "3. cross_days_trend：跨更长时间段（大约30天及以上）或需要比较趋势、统计走势、长期变化时选择，如“最近一个月趋势”“这几周变化”“长期变化”“增长趋势”。\n"
+        "4. general_qa：不限时间范围或与日期无关的常规问答，如“谁创建了这个记录”“内容里有没有提到XXX”或需要查看全部历史数据。\n\n"
+        "分类规则：\n"
+        "- 必须只输出这四个标签之一，全小写，不加解释，不加标点。\n"
+        "- 如果问题指向当天则选today_summary。\n"
+        "- 如果用户提到‘前几天’‘最近几天’或没有明确日期，但看起来是想看近期记录，则选recent_summary。\n"
+        "- 如果问题较复杂，需要比较或分析趋势、涉及更长时间段(>7天)再选cross_days_trend。\n"
+        "- 如果问题与时间无关或显然需要全量数据则选general_qa。\n"
+        "- 不确定时优先选recent_summary，不要直接跳到cross_days_trend或general_qa。\n"
+        "- 例子：\n"
+        "  用户问“今天的心情记录是什么” → today_summary\n"
+        "  用户问“我因为什么什么生气的那一天是哪一天” → recent_summary\n"
+        "  用户问“最近一个月我体重变化趋势” → cross_days_trend\n"
+        "  用户问“谁写下了这条备注” → general_qa\n"
     )
     user = "用户问题：{query}"
     return ChatPromptTemplate.from_messages([("system", system), ("user", user)])
 
 
+def build_relevance_check_prompt() -> ChatPromptTemplate:
+    """构建LLM相关性判断的prompt"""
+    return ChatPromptTemplate.from_messages([
+        ("system", """你是一个数据相关性判断专家。你的任务是判断检索到的日记记录是否能够回答用户的问题。
+
+判断标准：
+1. 内容相关性：记录内容是否涉及问题的主题
+2. 信息完整性：是否有足够的信息来回答问题
+3. 时间合理性：时间范围是否符合问题意图
+
+返回JSON格式：
+{{
+    "can_answer": true/false,
+    "confidence": "高/中/低",
+    "reason": "判断理由",
+    "missing_info": "如果不能回答，缺少什么信息"
+}}
+
+如果记录完全无关或信息严重不足，返回 can_answer: false
+如果有一定相关性但信息不够完整，返回 can_answer: true 但 confidence: "低"
+如果内容相关且信息较完整，返回 can_answer: true 且 confidence: "高"
+"""),
+        ("user", """用户问题：{query}
+
+检索到的记录：
+{records_summary}
+
+请判断这些记录是否足以回答用户的问题。""")
+    ])

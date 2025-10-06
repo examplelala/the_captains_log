@@ -13,5 +13,10 @@ class AgentState(TypedDict, total=False):
     query_vector: Optional[List[float]]
     retrieved: List[Dict[str, Any]]
     result: Dict[str, Any]
-
+    search_expanded: bool
+    expanded_start_date: Optional[str]
+    search_logs: List[Dict[str, Any]]
+    llm_confidence: Optional[str]
+    llm_reason: Optional[str]
+    max_attempts_reached: bool
 

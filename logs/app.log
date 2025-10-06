@@ -1,0 +1,19 @@
+2025-10-06 19:04:20 | INFO     | logging:callHandlers:1706 - 2a06:98c0:3600::103:0 - "GET /wordpress/wp-admin/setup-config.php HTTP/1.1" 404
+2025-10-06 19:04:24 | INFO     | logging:callHandlers:1706 - 2a06:98c0:3600::103:0 - "GET /wordpress/wp-admin/setup-config.php HTTP/1.1" 404
+2025-10-06 19:06:17 | INFO     | logging:callHandlers:1706 - 2a06:98c0:3600::103:0 - "GET /wp-admin/setup-config.php HTTP/1.1" 404
+2025-10-06 19:06:17 | INFO     | logging:callHandlers:1706 - 2a06:98c0:3600::103:0 - "GET /wp-admin/setup-config.php HTTP/1.1" 404
+2025-10-06 19:16:23 | INFO     | logging:callHandlers:1706 - 198.235.24.40:0 - "GET / HTTP/1.1" 200
+2025-10-06 19:36:30 | INFO     | logging:callHandlers:1706 - 176.65.132.220:0 - "GET /.env HTTP/1.1" 404
+2025-10-06 20:34:17 | INFO     | logging:callHandlers:1706 - 66.249.66.38:0 - "GET /robots.txt HTTP/1.1" 404
+2025-10-06 21:27:14 | INFO     | logging:callHandlers:1706 - Shutting down
+2025-10-06 21:27:14 | INFO     | logging:callHandlers:1706 - Waiting for application shutdown.
+2025-10-06 21:27:14 | INFO     | main:lifespan:22 - 🛑 Shutting down FastAPI application...
+2025-10-06 21:27:14 | INFO     | logging:callHandlers:1706 - Application shutdown complete.
+2025-10-06 21:27:14 | INFO     | logging:callHandlers:1706 - Finished server process [2747086]
+2025-10-06 21:27:19 | INFO     | logging:callHandlers:1706 - Started server process [3298928]
+2025-10-06 21:27:19 | INFO     | logging:callHandlers:1706 - Waiting for application startup.
+2025-10-06 21:27:19 | INFO     | main:lifespan:18 - 🚀 Starting FastAPI application...
+2025-10-06 21:27:19 | INFO     | service.embedding:load_model_sentence_transformers:6 - 使用 sentence-transformers 加载模型...
+2025-10-06 21:27:19 | INFO     | logging:callHandlers:1706 - Use pytorch device_name: cuda:0
+2025-10-06 21:27:19 | INFO     | logging:callHandlers:1706 - Load pretrained SentenceTransformer: BAAI/bge-small-zh-v1.5
+2025-10-06 21:27:20 | INFO     | logging:callHandlers:1706 - Application startup complete.
