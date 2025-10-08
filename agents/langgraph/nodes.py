@@ -362,9 +362,9 @@ async def _search_in_time_range(
     
     fts_query_str = " | ".join(query_words)
     fts_sql = f"""
-        SELECT id, ts_rank_cd(to_tsvector('english', content || ' ' || reflections), to_tsquery('english', :query)) as rank
+        SELECT id, ts_rank_cd(to_tsvector('simple', content || ' ' || reflections), to_tsquery('simple', :query)) as rank
         FROM daily_records
-        WHERE to_tsvector('english', content || ' ' || reflections) @@ to_tsquery('english', :query)
+        WHERE to_tsvector('simple', content || ' ' || reflections) @@ to_tsquery('simple', :query)
         AND {fts_where_sql}
         ORDER BY rank DESC
         LIMIT :top_k

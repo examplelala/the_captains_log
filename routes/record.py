@@ -171,4 +171,5 @@ async def ai_query(
     logger.info("开始查询")
     result = await respond(user_id=user_id, user_query=data.query, session=db)
     logger.info("查询成功")
+    logger.info(f"查询结果： {result}")
     return result

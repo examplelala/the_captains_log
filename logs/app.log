@@ -1,19 +1,53 @@
-2025-10-06 19:04:20 | INFO     | logging:callHandlers:1706 - 2a06:98c0:3600::103:0 - "GET /wordpress/wp-admin/setup-config.php HTTP/1.1" 404
-2025-10-06 19:04:24 | INFO     | logging:callHandlers:1706 - 2a06:98c0:3600::103:0 - "GET /wordpress/wp-admin/setup-config.php HTTP/1.1" 404
-2025-10-06 19:06:17 | INFO     | logging:callHandlers:1706 - 2a06:98c0:3600::103:0 - "GET /wp-admin/setup-config.php HTTP/1.1" 404
-2025-10-06 19:06:17 | INFO     | logging:callHandlers:1706 - 2a06:98c0:3600::103:0 - "GET /wp-admin/setup-config.php HTTP/1.1" 404
-2025-10-06 19:16:23 | INFO     | logging:callHandlers:1706 - 198.235.24.40:0 - "GET / HTTP/1.1" 200
-2025-10-06 19:36:30 | INFO     | logging:callHandlers:1706 - 176.65.132.220:0 - "GET /.env HTTP/1.1" 404
-2025-10-06 20:34:17 | INFO     | logging:callHandlers:1706 - 66.249.66.38:0 - "GET /robots.txt HTTP/1.1" 404
-2025-10-06 21:27:14 | INFO     | logging:callHandlers:1706 - Shutting down
-2025-10-06 21:27:14 | INFO     | logging:callHandlers:1706 - Waiting for application shutdown.
-2025-10-06 21:27:14 | INFO     | main:lifespan:22 - 🛑 Shutting down FastAPI application...
-2025-10-06 21:27:14 | INFO     | logging:callHandlers:1706 - Application shutdown complete.
-2025-10-06 21:27:14 | INFO     | logging:callHandlers:1706 - Finished server process [2747086]
-2025-10-06 21:27:19 | INFO     | logging:callHandlers:1706 - Started server process [3298928]
-2025-10-06 21:27:19 | INFO     | logging:callHandlers:1706 - Waiting for application startup.
-2025-10-06 21:27:19 | INFO     | main:lifespan:18 - 🚀 Starting FastAPI application...
-2025-10-06 21:27:19 | INFO     | service.embedding:load_model_sentence_transformers:6 - 使用 sentence-transformers 加载模型...
-2025-10-06 21:27:19 | INFO     | logging:callHandlers:1706 - Use pytorch device_name: cuda:0
-2025-10-06 21:27:19 | INFO     | logging:callHandlers:1706 - Load pretrained SentenceTransformer: BAAI/bge-small-zh-v1.5
-2025-10-06 21:27:20 | INFO     | logging:callHandlers:1706 - Application startup complete.
+2025-10-07 20:35:04 | INFO     | logging:callHandlers:1706 - 2a06:98c0:3600::103:0 - "GET /wordpress/wp-admin/setup-config.php HTTP/1.1" 404
+2025-10-07 20:35:12 | INFO     | logging:callHandlers:1706 - 2a06:98c0:3600::103:0 - "GET /wordpress/wp-admin/setup-config.php HTTP/1.1" 404
+2025-10-07 20:37:01 | INFO     | logging:callHandlers:1706 - 2a06:98c0:3600::103:0 - "GET /wp-admin/setup-config.php HTTP/1.1" 404
+2025-10-07 20:37:41 | INFO     | logging:callHandlers:1706 - 2a06:98c0:3600::103:0 - "GET /wp-admin/setup-config.php HTTP/1.1" 404
+2025-10-07 20:39:17 | INFO     | logging:callHandlers:1706 - 2a06:98c0:3600::103:0 - "GET /wordpress/wp-admin/setup-config.php HTTP/1.1" 404
+2025-10-07 22:53:15 | INFO     | logging:callHandlers:1706 - 3.85.235.213:0 - "GET / HTTP/1.1" 200
+2025-10-07 22:53:15 | INFO     | logging:callHandlers:1706 - 3.85.235.213:0 - "GET / HTTP/1.1" 200
+2025-10-07 22:53:15 | INFO     | logging:callHandlers:1706 - 3.85.235.213:0 - "GET / HTTP/1.1" 200
+2025-10-07 22:53:16 | INFO     | logging:callHandlers:1706 - 3.85.235.213:0 - "GET / HTTP/1.1" 200
+2025-10-07 23:01:58 | INFO     | logging:callHandlers:1706 - 203.33.203.148:0 - "GET / HTTP/1.1" 200
+2025-10-07 23:44:33 | INFO     | logging:callHandlers:1706 - 180.101.245.248:0 - "GET / HTTP/1.1" 200
+2025-10-07 23:44:33 | INFO     | logging:callHandlers:1706 - 220.196.160.76:0 - "GET / HTTP/1.1" 200
+2025-10-07 23:44:36 | INFO     | logging:callHandlers:1706 - 220.196.160.124:0 - "GET / HTTP/1.1" 200
+2025-10-07 23:44:39 | INFO     | logging:callHandlers:1706 - 220.196.160.117:0 - "GET / HTTP/1.1" 200
+2025-10-08 01:41:10 | INFO     | logging:callHandlers:1706 - 2a02:c207:2282:9872::1:0 - "GET / HTTP/1.1" 200
+2025-10-08 01:55:04 | INFO     | logging:callHandlers:1706 - 62.60.131.81:0 - "GET / HTTP/1.1" 200
+2025-10-08 02:08:16 | INFO     | logging:callHandlers:1706 - 162.62.132.25:0 - "GET / HTTP/1.1" 200
+2025-10-08 02:42:27 | INFO     | logging:callHandlers:1706 - 179.61.197.154:0 - "GET / HTTP/1.1" 200
+2025-10-08 03:06:06 | INFO     | logging:callHandlers:1706 - 66.249.66.38:0 - "GET /robots.txt HTTP/1.1" 404
+2025-10-08 03:06:07 | INFO     | logging:callHandlers:1706 - 66.249.66.38:0 - "GET / HTTP/1.1" 200
+2025-10-08 03:40:56 | INFO     | logging:callHandlers:1706 - 5.133.192.146:0 - "GET / HTTP/1.1" 200
+2025-10-08 03:40:57 | INFO     | logging:callHandlers:1706 - 5.133.192.146:0 - "GET /favicon.ico HTTP/1.1" 404
+2025-10-08 04:21:06 | INFO     | logging:callHandlers:1706 - 66.249.66.36:0 - "GET /hub/login HTTP/1.1" 404
+2025-10-08 04:21:54 | INFO     | logging:callHandlers:1706 - 64.226.91.209:0 - "GET /vendor/phpunit/phpunit/phpunit.xsd HTTP/1.1" 404
+2025-10-08 04:32:19 | INFO     | logging:callHandlers:1706 - 37.1.204.225:0 - "GET / HTTP/1.1" 200
+2025-10-08 04:40:56 | INFO     | logging:callHandlers:1706 - 2a06:98c0:3600::103:0 - "GET /wordpress/wp-admin/setup-config.php HTTP/1.1" 404
+2025-10-08 04:42:20 | INFO     | logging:callHandlers:1706 - 2a06:98c0:3600::103:0 - "GET /wp-admin/setup-config.php HTTP/1.1" 404
+2025-10-08 04:42:25 | INFO     | logging:callHandlers:1706 - 2a06:98c0:3600::103:0 - "GET /wp-admin/setup-config.php HTTP/1.1" 404
+2025-10-08 04:44:04 | INFO     | logging:callHandlers:1706 - 2a06:98c0:3600::103:0 - "GET /wordpress/wp-admin/setup-config.php HTTP/1.1" 404
+2025-10-08 06:45:54 | INFO     | logging:callHandlers:1706 - 182.42.104.32:0 - "GET / HTTP/1.1" 200
+2025-10-08 06:58:30 | INFO     | logging:callHandlers:1706 - 103.68.23.125:0 - "POST /xmlrpc.php HTTP/1.1" 404
+2025-10-08 07:01:11 | INFO     | logging:callHandlers:1706 - 154.160.77.18:0 - "POST /xmlrpc.php HTTP/1.1" 404
+2025-10-08 07:01:31 | INFO     | logging:callHandlers:1706 - 147.185.132.10:0 - "GET / HTTP/1.1" 200
+2025-10-08 07:25:58 | INFO     | logging:callHandlers:1706 - 198.235.24.13:0 - "GET / HTTP/1.1" 200
+2025-10-08 10:30:16 | INFO     | logging:callHandlers:1706 - 43.130.139.136:0 - "GET / HTTP/1.1" 200
+2025-10-08 10:31:44 | INFO     | logging:callHandlers:1706 - 2a06:98c0:3600::103:0 - "GET /wordpress/wp-admin/setup-config.php HTTP/1.1" 404
+2025-10-08 10:32:49 | INFO     | logging:callHandlers:1706 - 2a06:98c0:3600::103:0 - "GET /wordpress/wp-admin/setup-config.php HTTP/1.1" 404
+2025-10-08 10:33:23 | INFO     | logging:callHandlers:1706 - 2a06:98c0:3600::103:0 - "GET /wp-admin/setup-config.php HTTP/1.1" 404
+2025-10-08 10:34:07 | INFO     | logging:callHandlers:1706 - 2a06:98c0:3600::103:0 - "GET /wp-admin/setup-config.php HTTP/1.1" 404
+2025-10-08 11:18:03 | INFO     | logging:callHandlers:1706 - 141.11.46.113:0 - "GET /redoc HTTP/1.1" 200
+2025-10-08 11:18:05 | INFO     | logging:callHandlers:1706 - 141.11.46.113:0 - "GET /openapi.json HTTP/1.1" 200
+2025-10-08 11:22:55 | INFO     | logging:callHandlers:1706 - Shutting down
+2025-10-08 11:22:55 | INFO     | logging:callHandlers:1706 - Waiting for application shutdown.
+2025-10-08 11:22:55 | INFO     | main:lifespan:22 - 🛑 Shutting down FastAPI application...
+2025-10-08 11:22:55 | INFO     | logging:callHandlers:1706 - Application shutdown complete.
+2025-10-08 11:22:55 | INFO     | logging:callHandlers:1706 - Finished server process [3330128]
+2025-10-08 11:23:00 | INFO     | logging:callHandlers:1706 - Started server process [3947866]
+2025-10-08 11:23:00 | INFO     | logging:callHandlers:1706 - Waiting for application startup.
+2025-10-08 11:23:00 | INFO     | main:lifespan:18 - 🚀 Starting FastAPI application...
+2025-10-08 11:23:00 | INFO     | service.embedding:load_model_sentence_transformers:6 - 使用 sentence-transformers 加载模型...
+2025-10-08 11:23:00 | INFO     | logging:callHandlers:1706 - Use pytorch device_name: cuda:0
+2025-10-08 11:23:00 | INFO     | logging:callHandlers:1706 - Load pretrained SentenceTransformer: BAAI/bge-small-zh-v1.5
+2025-10-08 11:23:00 | INFO     | logging:callHandlers:1706 - Application startup complete.
