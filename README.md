@@ -43,15 +43,14 @@ pip install -r requirements.txt
 项目使用环境变量来管理敏感信息和配置。请根据'.env.example' 创建一个 `.env` 文件在项目根目录，并根据 `config.py` 中的 `Settings` 类定义填写以下变量：
 
 ```ini
-LLM_API_KEY="your_llm_api_key_here"
-LLM_BASE_URL="your_llm_base_url_here"
-LLM_MODEL_NAME="your_llm_model_name_here"
-# 选择数据库（两选一）
-# SQLite（异步）
-SQLITE_URL=sqlite+aiosqlite:///./app.db
-
-# PostgreSQL（异步）
-POSTGRES_URL=postgresql+asyncpg://user:password@localhost:5432/mydb
+LLM_API_KEY=your_llm_api_key_here
+LLM_BASE_URL=your_llm_base_url_here
+LLM_MODEL_NAME=your_llm_model_name_here
+# 如果使用 SQLite
+SQLITE_URL=postgresql+asyncpg://user:password@localhost:5432/mydb
+# 如果使用 PostgreSQL
+# POSTGRES_URL=postgresql+asyncpg://user:password@localhost:5432/mydb 
+```
 
 **请务必替换占位符为您实际的 API 密钥、URL 和模型名称。**
 
