@@ -69,4 +69,6 @@ python main.py
 *   **Swagger UI:** `http://0.0.0.0:18080/docs`
 *   **ReDoc:** `http://0.0.0.0:18080/redoc`
 
+## License
 
+MIT License © 2025 Your Name
