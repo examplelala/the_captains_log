@@ -5,7 +5,7 @@
 "The Captain's Log" 是一个基于 FastAPI 框架构建的 Python 应用程序。它集成了数据存储、大型语言模型 (LLM) 和天气 API 功能，旨在提供一个多功能的日志记录和信息检索平台。
 
 **主要功能:**
-
+*   **RAG Agent:** 基于 LangGraph 实现端到端知识检索与生成，支持意图分类、时间窗、预过滤、向量+FTS 混合检索及带历史上下文的生成。
 *   **RESTful API:** 提供一套完整的 RESTful API 接口，用于数据的创建、读取、更新和删除。
 *   **数据库集成:** 支持 SQLite 和 PostgreSQL 数据库，用于持久化存储数据。
 *   **LLM 集成:** 利用大型语言模型进行智能处理和分析。
@@ -14,7 +14,7 @@
 *   **CORS 支持:** 允许跨域请求，方便前端应用集成。
 
 ## 技术栈
-
+*   **智能体:** LangGraph, pgvector, Sentence Transformers, RRF
 *   **后端:** Python, FastAPI
 *   **数据库:** SQLite, PostgreSQL
 *   **其他库:** Uvicorn, Sentence Transformers, Pydantic Settings, Dotenv
@@ -28,7 +28,7 @@
 ### 2. 克隆仓库
 
 ```bash
-git clone https://github.com/your_username/the_captains_log.git
+git clone https://github.com/examplelala/the_captains_log.git
 cd the_captains_log
 ```
 
