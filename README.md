@@ -10,6 +10,7 @@
 *   **数据库集成:** 支持 SQLite 和 PostgreSQL 数据库，用于持久化存储数据。
 *   **LLM 集成:** 利用大型语言模型进行智能处理和分析。
 *   **天气 API 集成:** 获取实时的天气信息。
+*   **新闻API 集成：**  获取实时新闻信息
 *   **CORS 支持:** 允许跨域请求，方便前端应用集成。
 
 ## 技术栈
@@ -22,7 +23,7 @@
 
 ### 1. 环境准备
 
-确保您的系统已安装 Python 3.8+ 和 pip。
+确保您的系统已安装 Python 3.10+ 和 pip。
 
 ### 2. 克隆仓库
 
@@ -45,11 +46,12 @@ pip install -r requirements.txt
 LLM_API_KEY="your_llm_api_key_here"
 LLM_BASE_URL="your_llm_base_url_here"
 LLM_MODEL_NAME="your_llm_model_name_here"
-# 如果使用 SQLite
-SQLITE_URL="sqlite:///./sql_app.db"
-# 如果使用 PostgreSQL
-# POSTGRES_URL="postgresql://user:password@host:port/dbname" 
-```
+# 选择数据库（两选一）
+# SQLite（异步）
+SQLITE_URL=sqlite+aiosqlite:///./app.db
+
+# PostgreSQL（异步）
+POSTGRES_URL=postgresql+asyncpg://user:password@localhost:5432/mydb
 
 **请务必替换占位符为您实际的 API 密钥、URL 和模型名称。**
 

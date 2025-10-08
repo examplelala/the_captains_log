@@ -51,3 +51,20 @@
 2025-10-08 11:23:00 | INFO     | logging:callHandlers:1706 - Use pytorch device_name: cuda:0
 2025-10-08 11:23:00 | INFO     | logging:callHandlers:1706 - Load pretrained SentenceTransformer: BAAI/bge-small-zh-v1.5
 2025-10-08 11:23:00 | INFO     | logging:callHandlers:1706 - Application startup complete.
+2025-10-08 11:25:38 | INFO     | logging:callHandlers:1706 - 141.11.46.113:0 - "GET / HTTP/1.1" 200
+2025-10-08 11:26:03 | INFO     | logging:callHandlers:1706 - Shutting down
+2025-10-08 11:26:03 | INFO     | logging:callHandlers:1706 - Waiting for application shutdown.
+2025-10-08 11:26:03 | INFO     | main:lifespan:22 - 🛑 Shutting down FastAPI application...
+2025-10-08 11:26:03 | INFO     | logging:callHandlers:1706 - Application shutdown complete.
+2025-10-08 11:26:03 | INFO     | logging:callHandlers:1706 - Finished server process [3947866]
+2025-10-08 11:26:08 | INFO     | logging:callHandlers:1706 - Started server process [3949711]
+2025-10-08 11:26:08 | INFO     | logging:callHandlers:1706 - Waiting for application startup.
+2025-10-08 11:26:08 | INFO     | main:lifespan:18 - 🚀 Starting FastAPI application...
+2025-10-08 11:26:08 | INFO     | service.embedding:load_model_sentence_transformers:6 - 使用 sentence-transformers 加载模型...
+2025-10-08 11:26:08 | INFO     | logging:callHandlers:1706 - Use pytorch device_name: cuda:0
+2025-10-08 11:26:08 | INFO     | logging:callHandlers:1706 - Load pretrained SentenceTransformer: BAAI/bge-small-zh-v1.5
+2025-10-08 11:26:08 | INFO     | logging:callHandlers:1706 - Application startup complete.
+2025-10-08 11:26:09 | INFO     | logging:callHandlers:1706 - 141.11.46.113:0 - "GET / HTTP/1.1" 200
+2025-10-08 11:26:24 | INFO     | logging:callHandlers:1706 - 141.11.46.113:0 - "GET /news/hackernews?limit=3 HTTP/1.1" 200
+2025-10-08 11:26:25 | INFO     | logging:callHandlers:1706 - 141.11.46.113:0 - "GET /weather/103.8331/1.3062 HTTP/1.1" 200
+2025-10-08 11:26:25 | INFO     | logging:callHandlers:1706 - 141.11.46.113:0 - "GET /summary/users/1/today HTTP/1.1" 200

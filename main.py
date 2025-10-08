@@ -33,7 +33,7 @@ app.add_middleware(
 register_routes(app)
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"the_captains_log is running"}
 
 if __name__ == "__main__":
     uvicorn.run(
