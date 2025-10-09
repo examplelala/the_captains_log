@@ -60,7 +60,7 @@ SQLITE_URL=postgresql+asyncpg://user:password@localhost:5432/mydb
 python main.py
 ```
 
-应用程序将会在 `http://0.0.0.0:18080` 上运行。您可以通过浏览器访问 `http://0.0.0.0:18080` 查看 "Hello World" 消息。
+应用程序将会在 `http://0.0.0.0:18080` 上运行。您可以通过浏览器访问 `http://0.0.0.0:18080` 查看 "the_captains_log is running" 消息。
 
 ### 6. 访问 API 文档
 
